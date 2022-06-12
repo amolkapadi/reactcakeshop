@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Navbar from './component/Navbar';
+import Home from './component/Home';
+import Cake from './component/Cake';
+import Order from './component/Order';
+import { BrowserRouter,Routes,Route,} from "react-router-dom";
+import Logout from './component/Logout';
+import Profile from './component/Profile';
+import Sginup from './component/Sginup';
+import PrivateComp from './component/PrivateComp';
+import Login from './component/Login'
+import Footer from './component/Footer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <BrowserRouter>
+   <Navbar />
+
+     <Routes>
+     <Route element={<PrivateComp />}>
+     <Route path="/" element={<Home />} />
+     <Route path="/cake" element={<Cake />} />
+     <Route path="/order" element={<Order />} />
+     <Route path="/logout" element={<Logout />} />
+     <Route path="/profile" element={<Profile />} />
+     
+     </Route>
+
+     <Route path="/signup" element={<Sginup />} />
+     <Route path="/login" element={<Login />} />
+
+     </Routes>
+     <Footer />
+   </BrowserRouter>
+   </>
   );
 }
 
